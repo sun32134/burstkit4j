@@ -53,7 +53,6 @@ public class PlotCalculatorImpl implements PlotCalculator { // TODO all of this 
     @Override
     public BigInteger calculateDeadline(long accountId, long nonce, byte[] genSig, int scoop, long baseTarget, int pocVersion) {
         BigInteger hit = calculateHit(accountId, nonce, genSig, scoop, pocVersion);
-        System.out.println("accountId=" + accountId + "|nonce=" + nonce + "|genSig[0]=" + genSig[0] + "|genSig[genSig.length - 1]=" + genSig[genSig.length - 1] + "|scoop=" + scoop + "|baseTarget=" + baseTarget + "|pocVersion=" + pocVersion + "|hit=" + hit);
         return hit.divide(BigInteger.valueOf(baseTarget));
     }
 }

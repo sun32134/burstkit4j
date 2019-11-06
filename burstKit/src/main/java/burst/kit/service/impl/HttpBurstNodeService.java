@@ -236,20 +236,20 @@ public final class HttpBurstNodeService implements BurstNodeService {
 
     @Override
     public Observable<MiningInfo> getMiningInfo() {
-        AtomicReference<MiningInfoResponse> miningInfo = new AtomicReference<>();
+//        AtomicReference<MiningInfoResponse> miningInfo = new AtomicReference<>();
         return assign(Observable.interval(0, 1, TimeUnit.SECONDS)
                 .flatMapSingle(l -> blockchainService.getMiningInfo(BurstKitUtils.getEndpoint())
                         .map(this::checkBrsResponse))
-                .filter(newMiningInfo -> {
-                    synchronized (miningInfo) {
-                        if (miningInfo.get() == null || !Objects.equals(miningInfo.get().getGenerationSignature(), newMiningInfo.getGenerationSignature()) || !Objects.equals(miningInfo.get().getHeight(), newMiningInfo.getHeight())) {
-                            miningInfo.set(newMiningInfo);
-                            return true;
-                        } else {
-                            return false;
-                        }
-                    }
-                })
+//                .filter(newMiningInfo -> {
+//                    synchronized (miningInfo) {
+//                        if (miningInfo.get() == null || !Objects.equals(miningInfo.get().getGenerationSignature(), newMiningInfo.getGenerationSignature()) || !Objects.equals(miningInfo.get().getHeight(), newMiningInfo.getHeight())) {
+//                            miningInfo.set(newMiningInfo);
+//                            return true;
+//                        } else {
+//                            return false;
+//                        }
+//                    }
+//                })
                 .map(MiningInfo::new));
     }
 

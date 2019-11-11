@@ -27,12 +27,12 @@ abstract class AbstractBurstCrypto implements BurstCrypto {
         List<String> list = new ArrayList<>();
 
         for (int i = 0; i < 12; i++) {
-            int number = random.nextInt(wordsList.length) + 1; // 1-100的随机数（此处100必须比length大，否则会死循环）
+            int number = random.nextInt(wordsList.length) + 1;
             String word = wordsList[number % wordsList.length];
             if (!list.contains(word)) {
                 list.add(word);
             } else {
-                i--; // 保证生成的随机数个数足够，防止有重复随机数时造成空位
+                i--;
             }
         }
 

@@ -11,8 +11,8 @@ import java.util.concurrent.atomic.AtomicReference;
 @SuppressWarnings("WeakerAccess")
 public final class BurstKitUtils {
     private static final AtomicReference<String> endpoint = new AtomicReference<>("burst");
-    private static final AtomicReference<String> addressPrefix = new AtomicReference<>("BFC");
-    private static final AtomicReference<String> valueSuffix = new AtomicReference<>("BFC");
+    private static final AtomicReference<String> addressPrefix = new AtomicReference<>("EOC");
+    private static final AtomicReference<String> valueSuffix = new AtomicReference<>("EOC");
 
     public static GsonBuilder buildGson(GsonBuilder builder) {
         return builder
